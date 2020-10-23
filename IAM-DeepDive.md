@@ -23,13 +23,15 @@ It is responsible for two basic operations:
     * Groups cannot belong to other groups.
     * Groups can be granted permissions using access control policies. This makes it easier to manage permissions for a collection of users, rather than having to manage permissions for each individual user. 
         > Groups do not have security credentials, and cannot access web services directly; they exist solely to make it easier to manage user permissions. 
-
-
-
 3. Roles: An IAM role defines a set of permissions for making AWS service requests. 
     * IAM roles are not associated with a specific user or group. Instead, trusted entities assume roles, such as IAM users, applications, or AWS services such as EC2.
     * IAM roles allow to delegate access with defined permissions to trusted entities without having to share long-term access keys. 
     * IAM Role are used to delegate access to IAM users managed within the same account, to IAM users under a different AWS account, or to an AWS service - Example: EC2
+4. Policies: Set of permissions to AWS resources that are attached to users, groups, and roles. 
+    * By default, IAM users, groups, and roles have no permissions; users with sufficient permissions must use a policy to grant the desired permissions.
+    * Managed policies are IAM resources that express permissions using the IAM policy language.
+      > Use IAM groups to assign the policy (same set of permissions) to multiple IAM users rather than at user level
+    * Managed policies can only be attached to IAM users, groups, or roles. You cannot use them as resource-based policies.
 
 #### When should I use an IAM user, IAM group, or IAM role?
 
